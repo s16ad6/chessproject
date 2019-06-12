@@ -1,0 +1,237 @@
+public class Main {
+
+
+    private void InitialisiereFeld() {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (j % 2 + i == 0) Brett[i][j] = new Feld(Feld.Feldfarbe.Schwarz);
+                else Brett[i][j] = new Feld(Feld.Feldfarbe.Weiss);
+            }
+        }
+    }
+
+
+    private void InitialisiereFiguren(){
+
+        for(int i = 0; i < 8; i++){
+            Brett[1][i].setzeFigur(new Bauer(Figur.Feldfarbe.Schwarz));
+            Brett[6][i].setzeFigur(new Bauer(Figur.Feldfarbe.Weiss));
+        }
+
+
+        Brett[0][0].setzeFigur(new Turm(Figur.Feldfarbe.Schwarz));
+        Brett[0][7].setzeFigur(new Turm(Figur.Feldfarbe.Schwarz));
+        Brett[7][0].setzeFigur(new Turm(Figur.Feldfarbe.Weiss));
+        Brett[7][7].setzeFigur(new Turm(Figur.Feldfarbe.Weiss));
+
+
+        Brett[0][1].setzeFigur(new Springer(Figur.Feldfarbe.Schwarz));
+        Brett[0][6].setzeFigur(new Springer(Figur.Feldfarbe.Schwarz));
+        Brett[7][1].setzeFigur(new Springer(Figur.Feldfarbe.Weiss));
+        Brett[7][6].setzeFigur(new Springer(Figur.Feldfarbe.Weiss));
+
+
+        Brett[0][2].setzeFigur(new Laeufer(Figur.Feldfarbe.Schwarz));
+        Brett[0][5].setzeFigur(new Laeufer(Figur.Feldfarbe.Schwarz));
+        Brett[7][2].setzeFigur(new Laeufer(Figur.Feldfarbe.Weiss));
+        Brett[7][5].setzeFigur(new Laeufer(Figur.Feldfarbe.Weiss));
+
+
+        Brett[0][3].setzeFigur(new Dame(Figur.Feldfarbe.Schwarz));
+        Brett[7][3].setzeFigur(new Dame(Figur.Feldfarbe.Weiss));
+
+
+        Brett[0][4].setzeFigur(new Koenig(Figur.Feldfarbe.Schwarz));
+        Brett[7][4].setzeFigur(new Koenig(Figur.Feldfarbe.Weiss));
+    }
+
+
+    private void ErzeugeRahmen(){
+        for (int reihe = 0; reihe < 8; reihe++)
+        {
+            System.out.println("");
+            System.out.println("---------------------------------");
+
+            for (int zeile = 0; zeile < 9; zeile++)
+            {
+                System.out.print("| " + " " + " ");
+            }
+        }
+        System.out.println("");
+        System.out.println("---------------------------------");
+    }
+
+
+    public Schachbrett{
+        void InitialisiereFeld();
+        void InitialisiereFiguren();
+        void EreugeRahmen();
+        Brett = new Feld[8][8];
+    }
+
+    void Partien(){
+        String Partie1 = "1.e4 e6 2.d4 d5 3.Nd2 Nf6 4.e5 Nfd7 5.f4 c5 6.c3 Nc6 7.Ndf3 cxd4 8.cxd4 f6\n" +
+                "9.Bd3 Bb4+ 10.Bd2 Qb6 11.Ne2 fxe5 12.fxe5 O-O 13.a3 Be7 14.Qc2 Rxf3 15.gxf3 Nxd4\n" +
+                "16.Nxd4 Qxd4 17.O-O-O Nxe5 18.Bxh7+ Kh8 19.Kb1 Qh4 20.Bc3 Bf6 21.f4 Nc4 22.Bxf6 Qxf6\n" +
+                "23.Bd3 b5 24.Qe2 Bd7 25.Rhg1 Be8 26.Rde1 Bf7 27.Rg3 Rc8 28.Reg1 Nd6 29.Rxg7 Nf5\n" +
+                "30.R7g5 Rc7 31.Bxf5 exf5 32.Rh5+";
+
+        String Partie2 = "1.e4 e6 2.d4 d5 3.Nd2 c5 4.exd5 Qxd5 5.Ngf3 cxd4 6.Bc4 Qd6 7.O-O Nf6 8.Nb3 Nc6\n" +
+                "9.Nbxd4 Nxd4 10.Nxd4 a6 11.Nf3 b5 12.Bd3 Bb7 13.a4 Ng4 14.Re1 Qb6 15.Qe2 Bc5\n" +
+                "16.Rf1 b4 17.h3 Nf6 18.Bg5 Nh5 19.Be3 Bxe3 20.Qxe3 Qxe3 21.fxe3 Ng3 22.Rfe1 Ne4\n" +
+                "23.Ne5 Nc5 24.Bc4 Ke7 25.a5 Rhd8 26.Red1 Rac8 27.b3 Rc7 28.Rxd8 Kxd8 29.Nd3 Nxd3\n" +
+                "30.Bxd3 Rc5 31.Ra4 Kc7 32.Kf2 g6 33.g4 Bc6 34.Rxb4 Rxa5 35.Rf4 f5 36.g5 Rd5\n" +
+                "37.Rh4 Rd7 38.Bxa6 Rd2+ 39.Ke1 Rxc2 40.Rxh7+ Kd6 41.Bc4 Bd5 42.Rg7 Rh2 43.Rxg6 Rxh3\n" +
+                "44.Kd2 Rg3 45.Rg8 Bxc4 46.bxc4 Kc5 47.g6 Kd6 48.c5+ Kc7 49.g7 Kb7 50.c6+";
+
+        String Partie3 = "1.e4 c6 2.c4 d5 3.exd5 cxd5 4.cxd5 Nf6 5.Nc3 g6 6.Bc4 Bg7 7.Nf3 O-O 8.O-O Nbd7\n" +
+                "9.d3 Nb6 10.Qb3 Bf5 11.Re1 h6 12.a4 Nfd7 13.Be3 a5 14.Nd4 Nxc4 15.dxc4 Nc5\n" +
+                "16.Qa3 Nd3 17.Nxf5 gxf5 18.Red1 Ne5 19.b3 Ng4 20.Qc1 f4 21.Bd4 Bxd4 22.Rxd4 e5\n" +
+                "23.Rd2 Qh4 24.h3 Nf6 25.Qe1 Qg5 26.Ne4 Nxe4 27.Qxe4 f5 28.Qxe5 Rae8 29.h4 Qxh4\n" +
+                "30.Qc3 Re4 31.d6 Qg5 32.f3 Re3 33.Qxa5 Rfe8 34.Rf2 Qf6 35.Rd1 R3e5 36.d7";
+
+        String Partie4 = "1.e4 c6 2.c4 d5 3.exd5 cxd5 4.cxd5 Nf6 5.Nc3 Nxd5 6.d4 Nc6 7.Nf3 e6 8.Bd3 Be7\n" +
+                "9.O-O O-O 10.Re1 Bf6 11.Be4 Nce7 12.a3 Rb8 13.h4 b6 14.Qd3 g6 15.h5 Bb7 16.Bh6 Re8\n" +
+                "17.Rac1 Nxc3 18.bxc3 Bxe4 19.Rxe4 Nf5 20.Bf4 Rc8 21.hxg6 hxg6 22.Be5 Bxe5\n" +
+                "23.Nxe5 Qg5 24.Rd1 Kg7 25.Qf3 Rh8 26.Rg4 Qh5 27.Kf1 Nh6 28.Rf4 Qxf3 29.Rxf3 Rhd8\n" +
+                "30.Rfd3 f6 31.Nf3 Rd5 32.Rc1 Nf5 33.Ke2 Nd6 34.Nd2 Nb5 35.Kd1 e5 36.a4 Nd6\n" +
+                "37.Rb1 e4 38.Re3 f5 39.g3 g5 40.Rb4 Kg6 41.Kc2 Rc6 42.Re1";
+
+        String Partie5 = "1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.Bg5 e6 7.f4 Be7 8.Qf3 Qc7\n" +
+                "9.O-O-O Nbd7 10.Bd3 b5 11.Rhe1 Bb7 12.Qg3 b4 13.Nd5 exd5 14.e5 dxe5 15.fxe5 O-O-O\n" +
+                "16.Nf5 Bc5 17.exf6 Qxg3 18.hxg3 gxf6 19.Bf4 Ne5 20.Bxe5 fxe5 21.Rxe5 Rde8\n" +
+                "22.Rxe8+ Rxe8 23.Rh1 Rh8 24.Rh6 a5 25.Kd2 Kb8 26.Rf6 Rf8 27.Rh6 Rh8 28.Rf6";
+
+        String Partie6 = "1.c4 Nf6 2.g3 e5 3.Bg2 c6 4.d4 exd4 5.Qxd4 d5 6.Nf3 Be7 7.cxd5 cxd5 8.O-O Nc6\n" +
+                "9.Qa4 O-O 10.Be3 Ne4 11.Nc3 Nxc3 12.bxc3 Bf6 13.Bd4 Re8 14.Bxf6 Qxf6 15.Nd4 Bd7\n" +
+                "16.e3 Nxd4 17.Qxd4 Be6 18.Rfd1 Rec8 19.Qxf6 gxf6 20.Bxd5 Bxd5 21.Rxd5 Rxc3\n" +
+                "22.Rd7 b5 23.Rb7 a6 24.a4 Rac8 25.axb5 Rc1+ 26.Rxc1 Rxc1+ 27.Kg2 axb5 28.Rxb5 Kg7\n" +
+                "29.Kf3 Rc4 30.Rd5 Rc2 31.Rd4 f5 32.h3 Kg6 33.Rd5 h5 34.Rd6+ Kg7 35.Kg2 Rb2\n" +
+                "36.Kf1 Ra2 37.Rd4 Kg6 38.Ke1 Rb2 39.Rd6+ Kg7 40.Rd2 Rb3 41.Ke2 Kg6 42.Kf3 Rb4\n" +
+                "43.h4 Ra4 44.Ke2 Ra3 45.Rc2 Kf6 46.Kd2 Kg6 47.Kc1 Kg7 48.Rd2 Rc3+ 49.Kb2 Rc6\n" +
+                "50.Rd5 Kf6 51.Rd4 Kg6 52.Kb3 Kf6 53.Rc4 Ra6 54.Rf4 Kg6 55.Kc4 Ra4+ 56.Kb3 Ra6\n" +
+                "57.Ra4 Rc6 58.Rb4 Kf6 59.Rb8 Kg6 60.Rb5 Kf6 61.Rd5 Rc7 62.Rd6+ Kg7 63.Rd4 Rc6\n" +
+                "64.Rc4 Ra6 65.Kb2 Kg6 66.Rc5 Ra7 67.Kc1 Ra2 68.Rc6+ Kg7 69.Rc2 Ra3 70.Kd2 Kg6\n" +
+                "71.Ke2 Kf6 72.Rc6+ Kg7 73.e4 fxe4 74.Rc5 Kg6 75.Rg5+ Kh6 76.Re5 Kg6 77.Rxe4 f6\n" +
+                "78.Rd4 Rb3 79.Rd3 Rb4 80.Ke3 Ra4 81.Rd4 Ra2 82.f3 Ra3+ 83.Kf4 Ra1 84.Rb4 Rc1\n" +
+                "85.g4 hxg4 86.fxg4 Rf1+ 87.Kg3 Rg1+ 88.Kf3 Rf1+ 89.Kg2 Rc1 90.Rf4 Rc3 91.Rf5 Rb3\n" +
+                "92.h5+ Kg7 93.Rf3 Rb4 94.Kg3 Rc4 95.Rb3 Rc7 96.Rb4 Rc3+ 97.Kf4 Rc7 98.Rb5 Rc4+\n" +
+                "99.Kf5 Rc7 100.Ke6 Rc6+ 101.Kd5 Rc7 102.Ke6 Rc6+ 103.Kf5 Rc7 104.Rd5 Kf7\n" +
+                "105.Rd8 Rc5+ 106.Ke4 Rc4+";
+
+        String Partie7 = "1.e4 c6 2.d4 d5 3.e5 Bf5 4.Nc3 Qb6 5.g4 Bd7 6.Na4 Qc7 7.Nc5 e6 8.Nd3 c5 9.dxc5 Bb5\n" +
+                "10.f4 Bxc5 11.Nf3 Ne7 12.a4 Bxd3 13.Bxd3 Nbc6 14.Qe2 h5 15.g5 g6 16.c3 a6\n" +
+                "17.Be3 Bxe3 18.Qxe3 O-O 19.O-O Rac8 20.Rad1 Rfd8 21.Qf2 Na5 22.Nd4 Nc4 23.Rc1 Qb6\n" +
+                "24.b3 Na5 25.b4 Nac6 26.Nb3 d4 27.b5 axb5 28.axb5 Na5 29.Nd2 Kg7 30.c4 Nf5\n" +
+                "31.Ra1 Ne3 32.Rfc1 Rc7 33.Kh1 Rdc8 34.Ra4 Qxb5 35.cxb5 Rxc1+ 36.Nf1 Nb3 37.Rxd4 Nxf1\n" +
+                "38.Kg2 Nxd4 39.Qxd4 Rd1 40.Qe4 Rd2+ 41.Be2 Nxh2 42.Kxh2 Rcc2 43.Kg3 Rxe2\n" +
+                "44.Qd3 Rg2+ 45.Kf3 h4 46.Qf1 Rg3+ 47.Ke4 h3 48.f5 gxf5+";
+
+        String Partie8 = "1.e4 c6 2.d4 d5 3.Nd2 dxe4 4.Nxe4 Nd7 5.Bc4 Ngf6 6.Ng5 e6 7.Qe2 Nb6 8.Bb3 h6\n" +
+                "9.N5f3 a5 10.a4 c5 11.Bf4 Bd6 12.Ne5 cxd4 13.O-O-O Nbd5 14.Bg3 O-O 15.Rxd4 b6\n" +
+                "16.Bc4 Bb7 17.Ngf3 Qc7 18.Bb5 Nh5 19.Kb1 Rac8 20.Rc4 Nxg3 21.hxg3 Qe7 22.Rch4 Rfd8\n" +
+                "23.Ng4 Nf6 24.Nxh6+ gxh6 25.Rxh6 Be4 26.Bd3 Bxd3 27.cxd3 Kf8 28.Rh8+ Ng8\n" +
+                "29.g4 Bf4 30.g3 Bg5 31.R8h7 Rd5 32.Ne5 Rxe5 33.Qxe5 Bf6 34.Qe2 Qb4 35.g5 Bxg5\n" +
+                "36.Qh5 Qe7 37.Qg4 Qc5 38.Qe2 Bf6 39.f4 Ne7 40.g4 Nd5 41.g5 Bg7 42.Qh2 Nc3+\n" +
+                "43.bxc3 Qxc3 44.Ka2 Rc5 45.Rxg7";
+
+        String Partie9 = "1.e4 e6 2.d4 d5 3.Nd2 Nf6 4.e5 Nfd7 5.c3 c5 6.f4 Nc6 7.Ndf3 cxd4 8.cxd4 Qb6\n" +
+                "9.g3 Bb4+ 10.Kf2 g5 11.fxg5 Ndxe5 12.Nxe5 Nxe5 13.Be3 Nc6 14.Nf3 Bf8 15.Qd2 Bg7\n" +
+                "16.Kg2 Bd7 17.Rc1 Qa5 18.Rc3 e5 19.dxe5 d4 20.Bxd4 Nxd4 21.Qxd4 Rd8 22.Qf4 Qxa2\n" +
+                "23.Qc1 Qe6 24.h3 O-O 25.Bc4 Qe7 26.Re1 Be6 27.Qc2 Qd7 28.Bxe6 fxe6 29.Re2 Qf7\n" +
+                "30.Qe4 Rd5 31.Rc1 Rb5 32.Qe3 a5 33.h4 a4 34.Rd1 b6 35.Rdd2 Rc5 36.Rf2 Qc7\n" +
+                "37.Rde2 Rf5 38.Qe4 Rc4 39.Qd3 Rc5 40.Qd6 Bxe5 41.Qxe6+ Qf7 42.Qxf7+";
+
+        String Partie10 = "1.e4 e5 2.Nc3 Nc6 3.Bc4 Nf6 4.d3 Bb4 5.Ne2 d5 6.exd5 Nxd5 7.a3 Bxc3+ 8.bxc3 Be6\n" +
+                "9.O-O Qd7 10.Rb1 b6 11.Bxd5 Bxd5 12.f4 O-O-O 13.Qe1 e4 14.Qf2 exd3 15.cxd3 Qf5\n" +
+                "16.Qg3 Bc4 17.dxc4 Qxb1 18.Qf3 Rd6 19.c5 bxc5 20.Ng3 f5 21.Be3 Qd3 22.Rc1 Re8\n" +
+                "23.Nf1 g6 24.h3 Re4 25.Bxc5 Rd5 26.Be3 Na5 27.Qf2 Nc4 28.Bxa7 Re2 29.Qh4 Qe4\n" +
+                "30.Bf2 Qe7 31.Qh6 Nd2 32.Ng3 Rxf2 33.Kxf2 Qc5+ 34.Ke2 Nc4 35.Kf1 Rd2 36.Nh1 Ne3+\n" +
+                "37.Ke1 Rxg2 38.Nf2 Rg1+ 39.Ke2 Rxc1 40.Qxh7 Rc2+";
+
+        String Partie11 = "1.e4 d6 2.d4 Nf6 3.Nc3 g6 4.g3 Bg7 5.Bg2 O-O 6.Nge2 e5 7.h3 c6 8.a4 Nbd7\n" +
+                "9.O-O Qc7 10.Be3 b6 11.f4 exd4 12.Nxd4 Ba6 13.Re1 Rad8 14.Nxc6 Qxc6 15.e5 d5\n" +
+                "16.exf6 Nxf6 17.Bd4 Rfe8 18.Rxe8+ Rxe8 19.Kh2 Bb7 20.a5 Ne4 21.Bxg7 Kxg7\n" +
+                "22.Qd4+ Qf6 23.Nb5 Qxd4 24.Nxd4 Nd6 25.g4 h6 26.h4 Re7 27.Bf3 Kf6 28.Kg3 Re3\n" +
+                "29.Kf2 Re8 30.a6 Ba8 31.Rd1 Rc8 32.g5+ hxg5 33.hxg5+ Ke7 34.Re1+ Ne4+ 35.Ke3 Rc5\n" +
+                "36.Rh1 Bc6 37.Rh8 Nd6 38.Rb8 b5 39.Be2 Kd7 40.Bd3 Nc4+ 41.Bxc4";
+
+        String Partie12 = "1.d4 Nf6 2.c4 e6 3.g3 Bb4+ 4.Bd2 Qe7 5.Bg2 Nc6 6.Nf3 Bxd2+ 7.Nbxd2 d6 8.O-O O-O\n" +
+                "9.e4 e5 10.d5 Nb8 11.b4 a5 12.a3 c6 13.Ne1 cxd5 14.cxd5 Bd7 15.Nc2 Na6 16.Qb1 Rfc8\n" +
+                "17.Ne3 axb4 18.axb4 Qd8 19.Qb2 Bb5 20.Rfc1 Rxc1+ 21.Rxc1 g6 22.Nec4 ";
+
+        String Partie13 = "1.Nf3 Nf6 2.c4 b6 3.g3 Bb7 4.Bg2 c5 5.O-O g6 6.d3 Bg7 7.e4 d6 8.Nc3 Nbd7\n" +
+                "9.h3 O-O 10.Bg5 Rc8 11.Qd2 a6 12.Rfe1 e6 13.a4 Qc7 14.a5 bxa5 15.Nd1 Nb8\n" +
+                "16.Rxa5 h6 17.Bf4 Qb6 18.Ra3 Kh7 19.Nc3 Rfd8 20.Na4 Qa7 21.b4 Bc6 22.Rb1 cxb4\n" +
+                "23.Qxb4 Nbd7 24.Qa5 Ne8 25.Be3 Qc7 26.Nb6 Rb8 27.Nd2 Nef6 28.Kh2 Nc5 29.e5 Nb7\n" +
+                "30.Qxa6 dxe5 31.Bxc6 Qxc6 32.Nd5";
+
+        String Partie14 = "1.Nf3 Nf6 2.c4 e6 3.g3 b6 4.Bg2 Bb7 5.O-O c5 6.b3 Be7 7.Bb2 O-O 8.d3 a6 9.e4 d6\n" +
+                "10.Nc3 Nbd7 11.Qe2 Qc7 12.Nd2 Ne5 13.f4 Nc6 14.Nf3 Nd7 15.Kh1 Bf6 16.Qd2 Nd4\n" +
+                "17.Nxd4 Bxd4 18.Rae1 Bc6 19.Ba3 b5 20.Ne2 e5 21.Nxd4 exd4 22.Kg1 b4 23.Bc1 Qb7\n" +
+                "24.Bh3 a5 25.e5 Qc7 26.e6 fxe6 27.Bxe6+ Kh8 28.g4 a4 29.g5 Bb7 30.Bg4 Rf7\n" +
+                "31.Qe2 Raf8 32.Bf3 Bxf3 33.Qxf3 Rf5 34.Re6 Ne5 35.fxe5 Rxf3 36.Rxf3 Kg8 37.Rxf8+ Kxf8\n" +
+                "38.exd6 Qd7 39.Re4 Qxd6 40.Bf4 Qa6 41.bxa4 Kf7 42.Re2 Qxa4 43.Rd2 Kg6 44.Kf2 Qc6\n" +
+                "45.Re2 Kh5 46.Kg3 Qh1 47.Rd2 Qf1 48.h3 Qh1 49.Rb2 Qd1 50.Rd2 Qf1 ";
+
+        String Partie15 = "1.d4 d6 2.e4 Nf6 3.f3 e5 4.dxe5 dxe5 5.Qxd8+ Kxd8 6.Bc4 Ke8 7.Nc3 c6 8.Nge2 Nbd7\n" +
+                "9.a4 a5 10.Be3 Bc5 11.Kf2 Ke7 12.Nc1 Bxe3+ 13.Kxe3 Nc5 14.Nd3 Nxd3 15.Kxd3 Nd7\n" +
+                "16.Ke3 Nc5 17.Rhd1 f6 18.Rd2 Rd8 19.Rad1 Rxd2 20.Rxd2 Bd7 21.Rd1 Rb8 22.Be2 Be6\n" +
+                "23.Bf1 h5 24.h4 g5 25.g3 Rg8 26.Kf2 gxh4 27.gxh4 f5 28.exf5 Bxf5 29.Rd2 Rf8\n" +
+                "30.Ke3 Ne6 31.Ne2 Bg6 32.Bh3 Nc5 33.b3 Rf6 34.Bc8 b6 35.Bh3 Rf8 36.Bg2 Ne6\n" +
+                "37.Bh3 Nc5 38.Bg2 Rg8 39.Bh3 Bh7 40.Kf2 Rd8";
+
+        String Partie16 = "1.e4 c5 2.Nc3 a6 3.Nf3 d6 4.d4 cxd4 5.Nxd4 e6 6.f4 Nf6 7.Qf3 Qb6 8.Nb3 Qc7\n" +
+                "9.a4 b6 10.Bd3 Nc6 11.O-O Bb7 12.Qg3 Nd7 13.f5 Nde5 14.fxe6 fxe6 15.Qh3 Bc8\n" +
+                "16.Be3 Be7 17.Be2 Nd8 18.Nd4 Bf6 19.Bh5+ Nef7 20.Bg4 Qe7 21.Nd5 exd5 22.Bxc8 O-O\n" +
+                "23.Bf5 g6 24.exd5 gxf5 25.Nxf5 Qc7 26.Rae1 Nb7 27.Nd4 Ne5 28.Qe6+ Kg7 29.Qxe5 Bxe5\n" +
+                "30.Ne6+ Kg6 31.Nxc7 Rxf1+ 32.Rxf1 Rc8 33.Bxb6 Bxb2 34.Re1 a5 35.c4 Bd4+ 36.Bxd4 Rxc7\n" +
+                "37.Rc1 Kf7 38.Bb6 Rc8 39.Rf1+ Kg6 40.Rf4 Nc5 41.Bxc5 Rxc5 42.Kf2 h5 43.Ke3 Rc8\n" +
+                "44.Kd4 Rb8 45.Re4 Rb4 46.Re6+ Kf5 47.Rxd6 Rxa4 48.Re6 Ra1 49.Re2 a4 50.Rf2+ Kg6\n" +
+                "51.Kc5 a3 52.d6 Rb1 53.d7";
+
+        String Partie17 = "1.e4 e5 2.Nf3 Nc6 3.Bb5 a6 4.Ba4 Nf6 5.O-O Be7 6.Re1 b5 7.Bb3 O-O 8.c3 d6\n" +
+                "9.h3 Re8 10.d4 Bb7 11.Nbd2 Bf8 12.Bc2 Nb8 13.a4 Nbd7 14.Bd3 c6 15.b3 g6 16.Bb2 Bg7\n" +
+                "17.Qc2 Rc8 18.c4 exd4 19.Bxd4 Nh5 20.Bxg7 Nxg7 21.b4 a5 22.cxb5 cxb5 23.Qb2 bxa4\n" +
+                "24.Bb5 axb4 25.Qxb4 Bc6 26.Bxc6 Rxc6 27.Qxa4 Rc8 28.Qd4 Ne5 29.Ra6 Ne6 30.Qxd6 Nc5\n" +
+                "31.Qxd8 Rcxd8 32.Ra2 Nxf3+ 33.gxf3 Nd3 34.Re3 Nb4 35.Rb2 Nd3 36.Rc2 Nf4 37.Kh2 g5\n" +
+                "38.Kg3 Kg7 39.Re1 Re6 40.Nc4 Rh6 41.Rh1 Rc6 42.Ne3 Rxc2 43.Nxc2 Rd2 44.Ne3 Nh5+\n" +
+                "45.Kg4 Kg6 46.Rf1 Nf4 47.Kg3 h5 48.h4 Ne2+ 49.Kh2 gxh4 50.Ng2 Kg5 51.Ra1 Nd4\n" +
+                "52.Ra5+ f5 53.Kh3 Rxf2 54.f4+ Rxf4 55.Nxf4 Kxf4 56.e5 Nf3";
+
+        String Partie18 = "1.d4 Nf6 2.c4 e6 3.g3 d5 4.Bg2 Be7 5.Nf3 O-O 6.O-O dxc4 7.Qc2 a6 8.a4 Bd7\n" +
+                "9.Qxc4 Bc6 10.Bf4 Bd6 11.Qc1 Nbd7 12.Nc3 Qe7 13.a5 h6 14.Re1 Bxf3 15.Bxf3 Bxf4\n" +
+                "16.Qxf4 c6 17.Red1 Rfe8 18.Qe3 Rad8 19.Bg2 Nd5 20.Qc1 N7f6 21.Na4 e5 22.e3 exd4\n" +
+                "23.Rxd4 Nc7 24.Rxd8 Rxd8 25.Qc5 Qd7 26.Qb4 Nb5 27.Nc5 Qc7 28.Qf4 Qe7 29.Rc1 Nc7\n" +
+                "30.Qb4 Nb5 31.Nxa6 Qxb4 32.Nxb4 Rd2 33.Rc2 Rd1+ 34.Bf1 Nd5 35.Nxd5 Rxd5 36.a6 bxa6\n" +
+                "37.Rxc6 a5 38.Rc8+ Kh7 39.Bc4 Rd1+ 40.Kg2 Nd6 41.Rd8 f5 42.Be2 Rd2 43.Kf1 Ne4\n" +
+                "44.Rxd2 Nxd2+ 45.Ke1 Nb3 46.Bd3 g6 47.Bc2 Nc5 48.Kd2 Nd7 49.Kc3 Ne5 50.Bd1 Kg7\n" +
+                "51.f4 Nc6 52.Kc4 Nb4 53.Kb5 Nd5 54.Kxa5 Nxe3 55.Bf3";
+
+        String Partie19 = "1.e4 e5 2.Nf3 Nc6 3.Bb5 Nf6 4.O-O Nxe4 5.Re1 Nd6 6.Nxe5 Be7 7.Bf1 Nxe5 8.Rxe5 O-O\n" +
+                "9.d4 Bf6 10.Re1 Nf5 11.d5 d6 12.Nd2 Bg5 13.Nf3 Bxc1 14.Qxc1 Nh4 15.Qf4 Nxf3+\n" +
+                "16.Qxf3 Re8 17.Rxe8+ Qxe8 18.Qc3 Qd8 19.Re1 Bd7 20.Re3 a6 21.Bd3 Bb5 22.Be4 Rc8\n" +
+                "23.Qd4 Qf8 24.Bf5 Rb8 25.a4 Be8 26.h4 c5 27.dxc6 Bxc6 28.Be4 Bxe4 29.Rxe4 h6\n" +
+                "30.Qd5 Qd8 31.g3 b5 32.axb5 Rxb5 33.Qc6 Rb8 34.b4 d5 35.Re5 Qc8 36.Qd6 d4\n" +
+                "37.Rc5 Qe8 38.Re5 Qd8 39.Qc6 Qc8 40.Qd6 Qd8 41.Qxa6 Rxb4 42.Qc6 Rb8 43.Qe4 Qc8\n" +
+                "44.h5 Qc7 45.Kg2 Rd8 46.Re7 Qc5 47.g4 Kf8 48.Re5 Qd6 49.Kg1 f6 50.Re6 Qd7\n" +
+                "51.Kg2 Qd5 52.Qxd5";
+
+        String Partie20 = "1.e4 e5 2.Nf3 Nc6 3.Bb5 Nf6 4.d3 Bc5 5.Bxc6 dxc6 6.O-O Bg4 7.h3 Bxf3 8.Qxf3 O-O\n" +
+                "9.Nd2 Re8 10.Nc4 Nd7 11.Bd2 Re6 12.g3 b5 13.Ne3 Bf8 14.a4 a6 15.Ra2 Nc5 16.axb5 axb5\n" +
+                "17.Rfa1 Rxa2 18.Rxa2 Re8 19.Kg2 Ne6 20.Nf5 c5 21.Ra5 Qd7 22.Bc3 f6 23.b3 c6\n" +
+                "24.h4 g6 25.Ne3 Bg7 26.Qg4 Rf8 27.Kg1 Qf7 28.Ra6 f5 29.exf5 gxf5 30.Qe2 Qb7\n" +
+                "31.Ra2 Nd4 32.Bxd4 cxd4 33.Nf1 c5 34.Nd2 Bh6 35.Ra1 Qg7 36.Kh2 e4 37.Rf1 e3\n" +
+                "38.Nf3 Kh8 39.fxe3 dxe3 40.Ng1 Rg8 41.Qf3 Qc3 42.Qe2 f4 43.g4 f3 44.Nxf3 Rxg4\n" +
+                "45.Kh3 Rg8 46.Rg1 Rf8 47.Rg4 Qf6 48.Ng5 Qf2 49.Rg2 Bxg5 50.Rxf2 exf2 51.Qf1 Be3\n" +
+                "52.b4 cxb4 53.Qa1+ Kg8 54.Qf1 h5 55.Kh2 Kh7 56.Kh3 Rf4 57.d4 Bxd4 58.Kg2 Kh8\n" +
+                "59.Kh3 Rf6 60.Kh2 Rf8 61.Kh3 Rf4 62.Kg2 Rg4+ 63.Kh2 Be5+";
+
+    }
+
+    public static void main(String[] args) {
+
+
+        System.out.println("Test");
+    }
+}
